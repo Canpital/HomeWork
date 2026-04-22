@@ -1,0 +1,15 @@
+用户登录
+   ↓ 
+页面加载 
+   ↓
+初始化 fetchStudents()
+   ↓
+渲染表格 renderStudentTable()
+   ↓
+点击“编辑”按钮 → 调用 editStudent()
+   ↓
+点击“保存”按钮 → 调用 saveStudent()
+   ↓
+点击“删除”按钮 → 调用 showDeleteConfirm() → 确认后调用 deleteStudent()
+   ↓
+点击“搜索”按钮 → 调用 fetchStudents()

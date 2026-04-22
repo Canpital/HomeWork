@@ -1,0 +1,438 @@
+/* 全局样式：作用于整个页面<body>标签 */
+body {
+  margin: 0; /* 清除浏览器默认外边距，避免页面四周留白 */
+  padding: 0; /* 清除浏览器默认内边距，统一布局基准 */
+  font-family: Arial, sans-serif; /* 设定全局字体为Arial（无衬线字体），保证跨平台显示一致性 */
+  background-color: #f8f9fa; /* 页面背景色设为浅灰，降低视觉疲劳，突出内容区域 */
+}
+
+
+/* 头部区域：作用于<header class="header">组件 */
+.header {
+  background-color: #426ef0; /* 头部背景色为蓝色，作为系统主色调，体现专业性 */
+  color: #fff; /* 头部文字为白色，与蓝色背景形成高对比度，提升可读性 */
+  padding: 10px 20px; /* 内边距：上下10px、左右20px，控制头部内容与边框的距离 */
+  display: flex; /* 使用Flex布局，使头部内容（标题、欢迎语、按钮）横向排列 */
+  justify-content: space-between; /* 子元素两端对齐，标题靠左，欢迎语和按钮靠右 */
+  align-items: center; /* 子元素垂直居中对齐，保证视觉平衡 */
+}
+
+/* 头部标题：作用于<header>内的<h1>标签 */
+.header h1 {
+  margin: 0; /* 清除默认外边距，避免标题与头部上下边框产生额外间距 */
+  font-size: 24px; /* 标题字体大小为24px，突出层级 */
+}
+
+/* 欢迎语：作用于<div class="welcome">组件 */
+.welcome {
+  margin-right: 10px; /* 右侧外边距10px，与退出按钮保持间距，避免拥挤 */
+}
+
+/* 退出按钮：作用于<button id="logoutBtn">组件 */
+#logoutBtn {
+  background-color: #fff; /* 按钮背景为白色，与头部蓝色形成对比，突出可点击性 */
+  color: #426ef0; /* 按钮文字为蓝色，与头部色调统一 */
+  border: none; /* 去除默认边框，使按钮样式更简洁 */
+  padding: 5px 10px; /* 内边距：上下5px、左右10px，控制按钮大小 */
+  cursor: pointer; /* 鼠标悬停时显示"手型"指针，提示该元素可点击 */
+  border-radius: 3px; /* 轻微圆角（3px），优化视觉效果，避免直角生硬 */
+}
+
+
+/* 主内容区：作用于<main class="main">组件 */
+.main {
+  padding: 20px; /* 内边距20px，使内容与页面边缘保持距离，提升留白美感 */
+  max-width: 1400px; /* 最大宽度1400px，避免大屏幕下内容过宽导致阅读困难 */
+  margin: 0 auto; /* 水平居中，使内容在大屏幕上居中显示 */
+}
+
+/* 学生信息标题：作用于<section class="student-info">内的<h2>标签 */
+.student-info h2 {
+  margin-top: 0; /* 清除顶部外边距，避免与主内容区上内边距产生冗余间距 */
+  font-size: 20px; /* 标题大小20px，低于页面主标题，明确层级 */
+  margin-bottom: 15px; /* 底部外边距15px，与下方搜索表单保持距离 */
+  color: #333; /* 深灰色文字，比黑色柔和，提升阅读舒适度 */
+}
+
+
+/* 搜索表单：作用于<div class="search-form">组件 */
+.search-form {
+  display: flex; /* Flex布局使表单内元素（标签、输入框、按钮）横向排列 */
+  flex-wrap: wrap; /* 当屏幕宽度不足时，元素自动换行，适配小屏幕 */
+  margin-bottom: 15px; /* 底部外边距15px，与下方"添加学生"按钮保持距离 */
+  padding: 15px; /* 内边距15px，使表单内容与边框有留白，避免拥挤 */
+  background-color: #fff; /* 白色背景，与页面浅灰背景区分，突出表单区域 */
+  border-radius: 5px; /* 5px圆角，使表单边角圆润 */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* 轻微阴影，增强表单立体感 */
+}
+
+/* 搜索表单标签：作用于.search-form内的<label>标签 */
+.search-form label {
+  margin-right: 5px; /* 右侧外边距5px，与输入框保持距离 */
+  margin-bottom: 5px; /* 底部外边距5px，换行时与下方元素保持距离 */
+  font-weight: 500; /* 字体半粗体，突出标签与输入框的区分 */
+  color: #555; /* 中灰色文字，比标题浅，明确层级 */
+}
+
+/* 搜索表单输入框：作用于.search-form内的<input>标签 */
+.search-form input {
+  margin-right: 10px; /* 右侧外边距10px，与其他输入框/按钮保持距离 */
+  margin-bottom: 5px; /* 底部外边距5px，换行时与下方元素保持距离 */
+  padding: 5px 8px; /* 内边距：上下5px、左右8px，控制输入框大小 */
+  border: 1px solid #ddd; /* 浅灰色边框，勾勒输入框轮廓 */
+  border-radius: 3px; /* 3px圆角，优化外观 */
+  transition: border-color 0.2s; /* 边框颜色变化时的过渡动画（0.2秒），提升交互感 */
+}
+
+/* 搜索表单输入框聚焦状态：输入框被点击时的样式 */
+.search-form input:focus {
+  border-color: #426ef0; /* 边框变为蓝色，提示用户当前聚焦状态 */
+  outline: none; /* 去除浏览器默认的聚焦轮廓，统一样式 */
+  box-shadow: 0 0 0 2px rgba(66, 110, 240, 0.2); /* 蓝色光晕效果，强化聚焦反馈 */
+}
+
+/* 搜索表单按钮：作用于.search-form内的<button>标签（搜索按钮） */
+.search-form button {
+  margin-right: 5px; /* 右侧外边距5px，与其他按钮保持距离 */
+  padding: 5px 10px; /* 内边距：上下5px、左右10px，控制按钮大小 */
+  background-color: #426ef0; /* 蓝色背景，与头部色调统一，明确可点击性 */
+  color: #fff; /* 白色文字，与蓝色背景形成对比 */
+  border: none; /* 去除默认边框 */
+  border-radius: 3px; /* 3px圆角 */
+  cursor: pointer; /* 手型指针，提示可点击 */
+  transition: background-color 0.2s; /* 背景色变化过渡动画 */
+}
+
+/* 搜索表单按钮悬停状态 */
+.search-form button:hover {
+  background-color: #3356d0; /* 背景色加深，提供悬停反馈 */
+}
+
+/* 重置按钮：作用于<button id="resetBtn">组件 */
+#resetBtn {
+  background-color: #999; /* 灰色背景，与搜索按钮区分，功能上形成对比 */
+}
+
+/* 重置按钮悬停状态 */
+#resetBtn:hover {
+  background-color: #777; /* 灰色加深，提供反馈 */
+}
+
+
+/* 添加学生按钮：作用于<button id="addStudentBtn">组件 */
+#addStudentBtn {
+  background-color: #426ef0; /* 蓝色背景，与系统主色调一致 */
+  color: #fff; /* 白色文字 */
+  border: none; /* 无边框 */
+  padding: 6px 12px; /* 内边距稍大于搜索按钮，突出重要性 */
+  border-radius: 3px; /* 3px圆角 */
+  cursor: pointer; /* 手型指针 */
+  margin-bottom: 15px; /* 底部外边距15px，与下方表格保持距离 */
+  transition: background-color 0.2s; /* 过渡动画 */
+}
+
+/* 添加学生按钮悬停状态 */
+#addStudentBtn:hover {
+  background-color: #3356d0; /* 背景色加深 */
+}
+
+
+/* 学生表格：作用于<table class="student-table">组件 */
+.student-table {
+  width: 100%; /* 表格宽度占满父容器，充分利用空间 */
+  border-collapse: collapse; /* 合并单元格边框，避免双边框效果 */
+  background-color: #fff; /* 白色背景，突出表格内容 */
+  border-radius: 5px; /* 5px圆角 */
+  overflow: hidden; /* 配合圆角，隐藏表格边缘直角 */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* 轻微阴影，增强立体感 */
+}
+
+/* 表格表头与单元格：作用于<th>和<td>标签 */
+.student-table th,
+.student-table td {
+  border: 1px solid #ddd; /* 浅灰色边框，分隔单元格 */
+  padding: 8px 12px; /* 内边距：上下8px、左右12px，增加内容留白 */
+  text-align: left; /* 文字左对齐，符合表格阅读习惯 */
+}
+
+/* 表格表头：作用于<thead>内的<th>标签 */
+.student-table th {
+  background-color: #e9ecef; /* 浅灰背景，区分表头与内容行 */
+  font-weight: 600; /* 半粗体，突出表头文字 */
+  color: #444; /* 深灰色，提升可读性 */
+}
+
+/* 表格行悬停效果：作用于<tbody>内的<tr>标签 */
+.student-table tbody tr:hover {
+  background-color: #f1f7ff; /* 浅蓝色背景，提示用户当前鼠标所在行 */
+}
+
+
+/* 编辑按钮：作用于表格操作列的"编辑"按钮（通常class为.edit-btn） */
+.edit-btn {
+  background-color: #3498db; /* 浅蓝色背景，与删除按钮区分 */
+  color: white; /* 白色文字 */
+  border: none; /* 无边框 */
+  padding: 5px 10px; /* 小尺寸内边距，适合表格内按钮 */
+  border-radius: 3px; /* 圆角 */
+  cursor: pointer; /* 手型指针 */
+  font-size: 12px; /* 小字体，节省表格空间 */
+  margin-right: 5px; /* 右侧间距，与删除按钮分隔 */
+  transition: background-color 0.2s; /* 过渡动画 */
+}
+
+/* 编辑按钮悬停状态 */
+.edit-btn:hover {
+  background-color: #2980b9; /* 背景色加深 */
+}
+
+/* 删除按钮：作用于表格操作列的"删除"按钮（class为.delete-btn） */
+.delete-btn {
+  background-color: #e74c3c; /* 红色背景，警示删除操作 */
+  color: white; /* 白色文字 */
+  border: none; /* 无边框 */
+  padding: 5px 10px; /* 小尺寸内边距 */
+  border-radius: 3px; /* 圆角 */
+  cursor: pointer; /* 手型指针 */
+  font-size: 12px; /* 小字体 */
+  transition: background-color 0.2s; /* 过渡动画 */
+}
+
+/* 删除按钮悬停状态 */
+.delete-btn:hover {
+  background-color: #c0392b; /* 红色加深，强化警示 */
+}
+
+
+/* 模态框容器：作用于<div class="modal">组件（包括添加/编辑、删除确认弹窗） */
+.modal {
+  display: none; /* 默认隐藏，通过JS控制显示 */
+  position: fixed; /* 固定定位，覆盖整个页面 */
+  z-index: 1000; /* 高层级（1000），确保在所有元素上方 */
+  left: 0; /* 左对齐页面边缘 */
+  top: 0; /* 上对齐页面边缘 */
+  width: 100%; /* 宽度占满页面 */
+  height: 100%; /* 高度占满页面 */
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景（遮罩层），模糊背景内容 */
+  animation: fadeIn 0.3s; /* 淡入动画（0.3秒），使显示更柔和 */
+}
+
+/* 模态框内容区：作用于.modal内的<div class="modal-content">组件 */
+.modal-content {
+  background-color: #fff; /* 白色背景，突出弹窗内容 */
+  margin: 5% auto; /* 上下5%外边距，水平居中 */
+  padding: 20px; /* 内边距20px，内容与边框留白 */
+  border-radius: 5px; /* 5px圆角 */
+  width: 60%; /* 宽度占父容器60% */
+  max-width: 800px; /* 最大宽度800px，避免过宽 */
+  position: relative; /* 相对定位，便于内部关闭按钮绝对定位 */
+  animation: slideIn 0.3s; /* 滑入动画（0.3秒），从上方滑入 */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* 明显阴影，增强弹窗立体感 */
+}
+
+/* 模态框关闭按钮：作用于.modal-content内的<span class="close">组件 */
+.close {
+  color: #aaa; /* 浅灰色，弱化次要元素 */
+  float: right; /* 右对齐 */
+  font-size: 28px; /* 大字体，便于点击 */
+  font-weight: bold; /* 粗体，增强辨识度 */
+  cursor: pointer; /* 手型指针 */
+  position: absolute; /* 绝对定位，相对于模态框内容区 */
+  right: 20px; /* 距离右侧20px */
+  top: 10px; /* 距离顶部10px */
+  transition: color 0.2s; /* 颜色过渡动画 */
+}
+
+/* 关闭按钮悬停/聚焦状态 */
+.close:hover,
+.close:focus {
+  color: black; /* 变为黑色，提供反馈 */
+  text-decoration: none; /* 去除下划线（若有） */
+}
+
+
+/* 表单行容器：作用于<form>内的<div class="form-row">组件（用于表单元素换行） */
+.form-row {
+  display: flex; /* Flex布局使子元素横向排列 */
+  gap: 20px; /* 子元素间距20px，避免拥挤 */
+  margin-bottom: 15px; /* 底部外边距15px，与下一行表单保持距离 */
+  flex-wrap: wrap; /* 屏幕较小时自动换行 */
+}
+
+/* 表单组：作用于.form-row内的<div class="form-group">组件（包裹标签和输入框） */
+.form-group {
+  flex: 1; /* 子元素平均分配父容器宽度 */
+  min-width: 200px; /* 最小宽度200px，确保小屏幕下输入框不致过窄 */
+}
+
+/* 表单标签：作用于.form-group内的<label>标签 */
+.form-group label {
+  display: block; /* 标签独占一行，与输入框上下排列 */
+  margin-bottom: 5px; /* 底部外边距5px，与输入框保持距离 */
+  font-weight: bold; /* 粗体，突出标签 */
+  color: #555; /* 中灰色 */
+}
+
+/* 表单输入框和下拉框：作用于.form-group内的<input>和<select>标签 */
+.form-group input,
+.form-group select {
+  width: 100%; /* 宽度占满父容器 */
+  padding: 8px; /* 内边距8px，控制输入框大小 */
+  border: 1px solid #ddd; /* 浅灰色边框 */
+  border-radius: 4px; /* 4px圆角 */
+  box-sizing: border-box; /* 盒模型设置为border-box，确保padding不增加总宽度 */
+  transition: border-color 0.2s; /* 边框颜色过渡动画 */
+}
+
+/* 表单输入框和下拉框聚焦状态 */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #426ef0; /* 蓝色边框，提示聚焦 */
+  outline: none; /* 去除默认轮廓 */
+  box-shadow: 0 0 0 2px rgba(66, 110, 240, 0.2); /* 蓝色光晕 */
+}
+
+
+/* 表单按钮区域：作用于<form>内的<div class="form-actions">组件（包裹提交/取消按钮） */
+.form-actions {
+  text-align: center; /* 按钮居中对齐 */
+  margin-top: 20px; /* 顶部外边距20px，与上方表单内容保持距离 */
+  padding-top: 15px; /* 顶部内边距15px，配合边框形成分隔 */
+  border-top: 1px solid #eee; /* 顶部边框，分隔按钮与表单内容 */
+}
+
+/* 表单按钮：作用于.form-actions内的<button>标签 */
+.form-actions button {
+  margin: 0 10px; /* 左右外边距10px，按钮间保持距离 */
+  padding: 10px 20px; /* 内边距：上下10px、左右20px，按钮尺寸适中 */
+  border: none; /* 无边框 */
+  border-radius: 4px; /* 4px圆角 */
+  cursor: pointer; /* 手型指针 */
+  transition: background-color 0.2s; /* 背景色过渡动画 */
+  font-size: 14px; /* 字体大小14px，清晰可见 */
+}
+
+/* 提交按钮（保存）：作用于type="submit"的按钮 */
+.form-actions button[type="submit"] {
+  background-color: #4CAF50; /* 绿色背景，代表确认/成功 */
+  color: white; /* 白色文字 */
+}
+
+/* 提交按钮悬停状态 */
+.form-actions button[type="submit"]:hover {
+  background-color: #3d8b40; /* 绿色加深 */
+}
+
+/* 取消按钮：作用于type="button"的按钮 */
+.form-actions button[type="button"] {
+  background-color: #f44336; /* 红色背景，代表取消/警告 */
+  color: white; /* 白色文字 */
+}
+
+/* 取消按钮悬停状态 */
+.form-actions button[type="button"]:hover {
+  background-color: #d32f2f; /* 红色加深 */
+}
+
+
+/* 删除确认弹窗内容区：作用于#deleteConfirmModal内的.modal-content */
+#deleteConfirmModal .modal-content {
+  width: 400px; /* 固定宽度400px，比添加学生弹窗窄 */
+  text-align: center; /* 内容居中，强调确认操作 */
+  padding: 30px; /* 内边距30px，增加留白 */
+}
+
+/* 删除确认弹窗文字：作用于#deleteConfirmModal内的<p>标签 */
+#deleteConfirmModal p {
+  font-size: 16px; /* 字体16px，清晰可读 */
+  margin: 20px 0; /* 上下外边距20px，与标题和按钮保持距离 */
+  line-height: 1.5; /* 行高1.5，提升多行文字可读性 */
+}
+
+/* 删除学生姓名：作用于#deleteStudentName标签 */
+#deleteConfirmModal #deleteStudentName {
+  font-weight: bold; /* 粗体，突出显示被删除学生姓名 */
+  color: #e74c3c; /* 红色，强化警示 */
+}
+
+/* 确认删除按钮：作用于#confirmDeleteBtn按钮 */
+#confirmDeleteBtn {
+  background-color: #e74c3c; /* 红色背景，警示删除操作 */
+  color: white; /* 白色文字 */
+  padding: 10px 20px; /* 内边距适中 */
+  border: none; /* 无边框 */
+  border-radius: 4px; /* 圆角 */
+  cursor: pointer; /* 手型指针 */
+  margin: 0 10px; /* 左右间距 */
+  transition: background-color 0.2s; /* 过渡动画 */
+}
+
+/* 确认删除按钮悬停状态 */
+#confirmDeleteBtn:hover {
+  background-color: #c0392b; /* 红色加深 */
+}
+
+/* 取消删除按钮：作用于#cancelDeleteBtn按钮 */
+#cancelDeleteBtn {
+  background-color: #95a5a6; /* 灰色背景，中性操作 */
+  color: white; /* 白色文字 */
+  padding: 10px 20px; /* 内边距适中 */
+  border: none; /* 无边框 */
+  border-radius: 4px; /* 圆角 */
+  cursor: pointer; /* 手型指针 */
+  margin: 0 10px; /* 左右间距 */
+  transition: background-color 0.2s; /* 过渡动画 */
+}
+
+/* 取消删除按钮悬停状态 */
+#cancelDeleteBtn:hover {
+  background-color: #7f8c8d; /* 灰色加深 */
+}
+
+
+/* 动画定义：模态框显示动画 */
+@keyframes fadeIn {
+  from {opacity: 0;} /* 开始状态：完全透明 */
+  to {opacity: 1;} /* 结束状态：完全不透明 */
+}
+
+@keyframes slideIn {
+  from {transform: translateY(-30px); opacity: 0;} /* 开始状态：向上偏移30px且透明 */
+  to {transform: translateY(0); opacity: 1;} /* 结束状态：回到原位且不透明 */
+}
+
+
+/* 响应式适配：屏幕宽度≤768px时的样式（手机等小屏幕） */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* 头部内容纵向排列 */
+    gap: 10px; /* 子元素间距10px */
+    padding: 15px; /* 内边距增加到15px */
+  }
+  
+  .search-form {
+    flex-direction: column; /* 搜索表单纵向排列 */
+    gap: 10px; /* 子元素间距10px */
+  }
+  
+  .search-form input,
+  .search-form button {
+    width: 100%; /* 输入框和按钮占满宽度 */
+    margin-right: 0; /* 清除右侧间距 */
+  }
+  
+  .modal-content {
+    width: 90% !important; /* 弹窗占满90%宽度 */
+    margin: 15% auto; /* 上下外边距增加到15% */
+  }
+  
+  .form-row {
+    flex-direction: column; /* 表单行纵向排列 */
+    gap: 15px; /* 子元素间距15px */
+  }
+  
+  /* 表格横向滚动容器（通常包裹<table>） */
+  .student-table-container {
+    overflow-x: auto; /* 表格过宽时允许横向滚动 */
+  }
+}

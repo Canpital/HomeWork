@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- 设置视口，确保在移动设备上正确显示 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学生管理系统</title>
+  <!-- 引入外部样式表 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- 页面头部区域 -->
+  <header class="header">
+    <h1>学生管理系统</h1>
+    <div class="welcome">欢迎，管理员</div>
+    <button id="logoutBtn">退出</button>
+  </header>
+  
+  <!-- 主要内容区域 -->
+  <main class="main">
+    <!-- 学生信息管理部分 -->
+    <section class="student-info">
+      <h2>学生信息管理</h2>
+      
+      <!-- 搜索表单区域 -->
+      <div class="search-form">
+        <label for="name">姓名</label>
+        <input type="text" id="name" placeholder="请输入姓名">
+        
+        <label for="studentId">学号</label>
+        <input type="text" id="studentId" placeholder="请输入学号">
+        
+        <label for="classId">班级ID</label>
+        <input type="text" id="classId" placeholder="请输入班级ID">
+        
+        <button id="searchBtn">搜索</button>
+        <button id="resetBtn">重置</button>
+      </div>
+      
+      <!-- 添加学生按钮 -->
+      <button id="addStudentBtn">添加学生</button>
+      
+      <!-- 学生信息表格 -->
+      <table class="student-table">
+        <thead>
+          <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>班级ID</th>
+            <th>电话</th>
+            <th>邮箱</th>
+            <th>状态</th>
+            <th>入学日期</th>
+            <th>最近更新时间</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 表格内容后续可通过JS动态添加 -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+  
+  <!-- 添加/编辑学生模态框 
+       用于新增学生信息或编辑已有学生信息的弹窗
+  -->
+  <div id="addStudentModal" class="modal">
+    <div class="modal-content">
+      <!-- 关闭按钮 -->
+      <span class="close">&times;</span>
+      
+      <h2 id="modalTitle">新增/编辑学生信息</h2>
+      
+      <!-- 学生信息表单 -->
+      <form id="addStudentForm">
+        <!-- 隐藏字段，用于存储学生ID（编辑时使用） -->
+        <input type="hidden" id="studentIdHidden" value="">
+        
+        <!-- 表单第一行：学号和姓名 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalStudentId">学号:</label>
+            <input type="text" id="modalStudentId" name="studentId" required>
+          </div>
+          <div class="form-group">
+            <label for="modalName">姓名:</label>
+            <input type="text" id="modalName" name="name" required>
+          </div>
+        </div>
+        
+        <!-- 表单第二行：性别和出生日期 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalGender">性别:</label>
+            <select id="modalGender" name="gender" required>
+              <option value="">请选择</option>
+              <option value="男">男</option>
+              <option value="女">女</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modalBirthDate">出生日期:</label>
+            <input type="date" id="modalBirthDate" name="birthDate">
+          </div>
+        </div>
+        
+        <!-- 表单第三行：班级ID和电话 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalClassId">班级ID:</label>
+            <input type="number" id="modalClassId" name="classId" required>
+          </div>
+          <div class="form-group">
+            <label for="modalPhone">电话:</label>
+            <input type="tel" id="modalPhone" name="phone">
+          </div>
+        </div>
+        
+        <!-- 表单第四行：邮箱和状态 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalEmail">邮箱:</label>
+            <input type="email" id="modalEmail" name="email">
+          </div>
+          <div class="form-group">
+            <label for="modalStatus">状态:</label>
+            <select id="modalStatus" name="status">
+              <option value="在读">在读</option>
+              <option value="休学">休学</option>
+              <option value="退学">退学</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- 表单第五行：入学日期和地址 -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modalEnrollmentDate">入学日期:</label>
+            <input type="date" id="modalEnrollmentDate" name="enrollmentDate">
+          </div>
+          <div class="form-group">
+            <label for="modalAddress">地址:</label>
+            <input type="text" id="modalAddress" name="address">
+          </div>
+        </div>
+        
+        <!-- 表单操作按钮 -->
+        <div class="form-actions">
+          <button type="submit" id="saveStudentBtn">保存</button>
+          <button type="button" id="cancelAddStudent">取消</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 确认删除对话框 
+       用于在删除学生信息前确认用户操作
+  -->
+  <div id="deleteConfirmModal" class="modal">
+    <div class="modal-content">
+      <!-- 关闭按钮 -->
+      <span class="close">&times;</span>
+      
+      <h2>确认删除</h2>
+      <p>您确定要删除学生 <span id="deleteStudentName"></span> 吗？此操作不可撤销。</p>
+      
+      <!-- 确认操作按钮 -->
+      <div class="form-actions">
+        <button id="confirmDeleteBtn">确认删除</button>
+        <button id="cancelDeleteBtn">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入外部JavaScript文件 -->
+  <script src="script.js"></script>
+</body>
+
+</html>
